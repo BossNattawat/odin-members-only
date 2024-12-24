@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Only</title>
+    <link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%-include("Navbar") %>
+    <div class="messageContainer">
+        <% if(!login) {%>
+            <div class="messageCard" id="alert">
+                <h2>To create a post, you need to <a href="/login">Login</a> first.</h2>
+            </div>
+        <% }%>
+        
+        <% message.map((item) => { %>
+            <div class="messageCard">
+                <div class="profile">
+                    <img src="/images/profile.jpg" alt="profilePic">
+                    <div class="usernameBox">
+                        <p><% if(login) {%>
+                                <%=item.author %>
+                            <% } else {%>
+                                *****
+                            <% } %>
+                        </p>
+                        <p>@<% if(login) {%>
+                            <%=item.username%> 
+                            <% } else {%>
+                                *****
+                            <% } %>
+                        • <%=item.createAt.toLocaleDateString()%></p>
+                    </div>
+                </div>
+                <div class="messageWrapper">
+                    <h1><%=item.title %></h1>
+                    <p><%=item.message %></p>
+                    <% if(role === "Admin") {%>
+                        <a href="/delete/<%=item._id%>" onclick="return confirm('Confirm delete?')">Delete</a>
+                    <% }%>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

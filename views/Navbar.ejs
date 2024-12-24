@@ -1,0 +1,14 @@
+<nav>
+    <h1><a href="/">Members Only</a></h1>
+    <% if(login){ %>
+        <ul>
+            <li><a href="/newPost">Create a new message</a></li>
+            <li><a href="/logout" id="logout">Logout</a></li>
+        </ul>
+    <% } else {%>
+        <ul>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    <% } %>
+</nav>
