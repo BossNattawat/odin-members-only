@@ -5,6 +5,19 @@ const router = require("./routes/router")
 const auth = require('./routes/auth');
 const MongoStore = require('connect-mongo');
 require('dotenv').config();
+const mongoose = require('mongoose');
+
+const dbURL = process.env.DB_URL
+
+mongoose.connect(dbURL, {
+    serverSelectionTimeoutMS: 30000,
+})
+.then(() => {
+    console.log("Database connected successfully!");
+})
+.catch((err) => {
+    console.error("Database connection error:", err);
+})
 
 const PORT = process.env.PORT || 8080
 const app = express()
