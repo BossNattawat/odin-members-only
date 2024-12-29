@@ -1,18 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-require('dotenv').config();
-
-const dbURL = process.env.DB_URL
-
-mongoose.connect(dbURL, {
-    serverSelectionTimeoutMS: 30000,
-})
-.then(() => {
-    console.log("Database connected successfully!");
-})
-.catch((err) => {
-    console.error("Database connection error:", err);
-})
 
 const userSchema = mongoose.Schema({
     fullname: {type:String, require: true},
