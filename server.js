@@ -33,8 +33,8 @@ app.use(expressSession({
 }));
 app.use(express.urlencoded({ extended: false }));
 
-app.use(router)
 app.use(auth)
+app.use(router)
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
