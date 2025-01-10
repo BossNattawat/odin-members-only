@@ -13,15 +13,17 @@
         <h1>Register</h1>
         <form action="/registerNewAccount" method="POST">
             <label for="fullname">Fullname</label>
-            <input type="text" name="fullname" required>
+            <input type="text" name="fullname" required placeholder="Fullname">
             <label for="username">Username</label>
-            <input type="text" name="username" required>
+            <input type="text" name="username" required placeholder="Username">
             <label for="password">Password</label>
-            <input type="password" name="password" required>
+            <input type="password" name="password" required placeholder="Password">
             <label for="confirmPassword">Confirm Password</label>
-            <input type="password" name="confirmPassword" required>
+            <input type="password" name="confirmPassword" required placeholder="Confirm Password">
             <button type="submit">Register</button>
         </form>
+        <p class="underFormText">Already have an acount? <a href="/login">Login</a></p>
     </div>
+    <%-include("Footer") %>
 </body>
 </html>
